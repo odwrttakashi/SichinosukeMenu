@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>七之助</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: rgba(248, 248, 248, 0); /* 背景色を透明に */
+      }
+      h1 {
+        text-align: center;
+        padding: 20px 0;
+        color: black; /* テキストの色を黒に変更 */
+        z-index: 1; /* テキストを前面に表示 */
+        position: relative; /* z-indexを有効にするため */
+        font-family: "Noto Sans JP", sans-serif; /* 和風フォントを指定 */
+        height: 200px; /* ヘッダーの高さ */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /*背景画像の設定*/ /* PC内の画像ファイルを指定 */
+        background-image: url("images/P014513512_480.jpg"),
+          url("images/P014513512_480q.jpg"), url("images/P027296996_481.jpg");
+        background-size: 33.33% auto, 50% auto, 45% auto; /* 各画像のサイズを設定 */
+        background-repeat: no-repeat; /* 繰り返さない */
+        background-position: left center, center center, right center; /* 各画像の位置を指定 */
+      }
+
+      .menu-category {
+        margin-bottom: 60px; /* カテゴリー間のスペースを増やす */
+        border-bottom: 2px solid #ddd; /* 各カテゴリーの下にボーダーを追加 */
+        padding-bottom: 20px; /* ボーダーとの間隔を調整 */
+        overflow-x: auto; /* カテゴリーごとに横スクロール */
+      }
+
+      .menu-category h2 {
+        background: linear-gradient(
+          to right,
+          #ff9800,
+          #fff9c4
+        ); /* 濃い目のオレンジから淡い黄色のグラデーション */
+        padding: 15px; /* パディングを増やす */
+        border-radius: 8px; /* 角を丸くする */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 小さな影を追加 */
+        position: relative; /* 下線を作るための基準 */
+      }
+      .menu-items {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(250px, 1fr)
+        ); /* 2列レイアウト */
+        grid-auto-flow: column;
+        gap: 20px;
+        overflow-x: auto; /* 横スクロール */
+        white-space: nowrap;
+        padding-bottom: 10px; /* スクロールバー用の余白 */
+      }
+      .menu-category h2::after {
+        content: ""; /* 下線を表示するために使用 */
+        display: block;
+        width: 100%;
+        height: 2px; /* 下線の太さ */
+        background-color: black; /* 下線の色 */
+        position: absolute;
+        bottom: 0; /* 下線の位置を設定 */
+        left: 0;
+      }
+      .menu-item {
+        display: inline-block;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        width: 200px; /* アイテム幅調整 */
+        white-space: normal;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .menu-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+      .price {
+        color: #d9534f;
+        font-weight: bold;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>～七之助～</h1>
+
+    <div class="menu-category">
+      <h2>【刺身】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/89/85/P020468985/P020468985_480.jpg"
+            alt="お刺身盛合せ"
+          />
+          <p>お刺身盛合せ</p>
+          <p class="price">1,000円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/44/87/P035584487/P035584487_480.jpg"
+            alt="カンパチ刺"
+          />
+          <p>カンパチ刺</p>
+          <p class="price">1,000円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/87/24/P035378724/P035378724_480.jpg"
+            alt="鯛刺"
+          />
+          <p>鯛刺</p>
+          <p class="price">1,000円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/84/05/P044598405/P044598405_480.jpg"
+            alt="ゴマカンパチ"
+          />
+          <p>ゴマカンパチ</p>
+          <p class="price">1,000円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/22/58/P045352258/P045352258_480.jpg"
+            alt="サーモン刺"
+          />
+          <p>サーモン刺</p>
+          <p class="price">1,000円</p>
+        </div>
+        <div class="menu-item">
+          <img src="images/DSC09856.jpg" alt="いさき炙り" />
+          <p>イサキ炙り</p>
+          <p class="price">1,000円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【小鉢】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/03/88/P040530388/P040530388_480.jpg"
+            alt="枝豆"
+          />
+          <p>枝豆</p>
+          <p class="price">385円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/03/98/P040530398/P040530398_480.jpg"
+            alt="オニオンスライス"
+          />
+          <p>オニオンスライス</p>
+          <p class="price">330円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/02/P040530402/P040530402_480.jpg"
+            alt="胡瓜の胡麻塩"
+          />
+          <p>胡瓜の胡麻塩</p>
+          <p class="price">385円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/17/P040530417/P040530417_480.jpg"
+            alt="烏賊塩辛"
+          />
+          <p>烏賊塩辛</p>
+          <p class="price">440円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/21/P040530421/P040530421_480.jpg"
+            alt="キムチ"
+          />
+          <p>キムチ</p>
+          <p class="price">440円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/27/P040530427/P040530427_480.jpg"
+            alt="チャンジャ"
+          />
+          <p>チャンジャ</p>
+          <p class="price">440円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/35/P040530435/P040530435_480.jpg"
+            alt="蛍烏賊沖漬汁"
+          />
+          <p>蛍烏賊沖漬汁</p>
+          <p class="price">605円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/39/P040530439/P040530439_480.jpg"
+            alt="エイヒレ"
+          />
+          <p>エイヒレ</p>
+          <p class="price">660円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/46/P040530446/P040530446_480.jpg"
+            alt="トマトスライス"
+          />
+          <p>トマトスライス</p>
+          <p class="price">495円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/54/P040530454/P040530454_480.jpg"
+            alt="胡瓜の梅わさび"
+          />
+          <p>胡瓜の梅わさび</p>
+          <p class="price">550円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/62/P040530462/P040530462_480.jpg"
+            alt="クリームチーズ山葵醤油"
+          />
+          <p>クリームチーズ山葵醤油</p>
+          <p class="price">550円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/72/P040530472/P040530472_480.jpg"
+            alt="かにみそ"
+          />
+          <p>かにみそ</p>
+          <p class="price">550円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/77/P040530477/P040530477_480.jpg"
+            alt="蛸わさ"
+          />
+          <p>蛸わさ</p>
+          <p class="price">440円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/80/P040530480/P040530480_480.jpg"
+            alt="鯛わた"
+          />
+          <p>鯛わた</p>
+          <p class="price">605円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/86/P040530486/P040530486_480.jpg"
+            alt="山芋短冊"
+          />
+          <p>山芋短冊</p>
+          <p class="price">605円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【菜】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/89/P040530489/P040530489_480.jpg"
+            alt="野菜サラダ"
+          />
+          <p>野菜サラダ</p>
+          <p class="price">660円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/95/P040530495/P040530495_480.jpg"
+            alt="水菜とジャコのシーザーサラダ"
+          />
+          <p>水菜とジャコのシーザーサラダ</p>
+          <p class="price">990円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/04/97/P040530497/P040530497_480.jpg"
+            alt="生ハムサラダ"
+          />
+          <p>生ハムサラダ</p>
+          <p class="price">990円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/04/P040530504/P040530504_480.jpg"
+            alt="合鴨スモークサラダ"
+          />
+          <p>合鴨スモークサラダ</p>
+          <p class="price">1,045円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/16/P040530516/P040530516_480.jpg"
+            alt="オクラ納豆山芋サラダ"
+          />
+          <p>オクラ納豆山芋サラダ</p>
+          <p class="price">825円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/22/P040530522/P040530522_480.jpg"
+            alt="魚たっぷり海鮮サラダ"
+          />
+          <p>魚たっぷり海鮮サラダ</p>
+          <p class="price">1,540円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【牛肉】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/60/P040530560/P040530560_480.jpg"
+            alt="手作り牛肉ハンバーグ"
+          />
+          <p>手作り牛肉ハンバーグ</p>
+          <p class="price">1,210円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/65/P040530565/P040530565_480.jpg"
+            alt="牛サガリ粒マスタードソース"
+          />
+          <p>牛サガリ粒マスタードソース</p>
+          <p class="price">1,320円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/71/P040530571/P040530571_480.jpg"
+            alt="牛ハツ厚切りステーキ"
+          />
+          <p>牛ハツ厚切りステーキ</p>
+          <p class="price">990円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/33/P040530533/P040530533_480.jpg"
+            alt="牛フィレステーキ"
+          />
+          <p>牛フィレステーキ</p>
+          <p class="price">2,420円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/14/P025664314/P025664314_480.jpg"
+            alt="仔牛のロースカツ"
+          />
+          <p>仔牛のロースカツ</p>
+          <p class="price">1,870円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/05/49/P040530549/P040530549_480.jpg"
+            alt="黒毛和牛サーロインステーキ"
+          />
+          <p>黒毛和牛サーロインステーキ</p>
+          <p class="price">3,080円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【創作】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/32/P040541432/P040541432_480.jpg"
+            alt="スパム入り韮玉"
+          />
+          <p>スパム入り韮玉</p>
+          <p class="price">660円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/23/P025664323/P025664323_480.jpg"
+            alt="生ハムとクリームチーズの生春巻"
+          />
+          <p>生ハムとクリームチーズの生春巻</p>
+          <p class="price">935円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/33/P040541433/P040541433_480.jpg"
+            alt="海老とアボカドわさびマヨネーズ和え"
+          />
+          <p>海老とアボカドわさびマヨネーズ和え</p>
+          <p class="price">825円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/37/P040541437/P040541437_480.jpg"
+            alt="海鮮生春巻"
+          />
+          <p>海鮮生春巻</p>
+          <p class="price">935円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/41/P040541441/P040541441_480.jpg"
+            alt="蛸と胡瓜のコチュジャン和え"
+          />
+          <p>蛸と胡瓜のコチュジャン和え</p>
+          <p class="price">825円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/46/P040541446/P040541446_480.jpg"
+            alt="鴨ロースト レモンソース"
+          />
+          <p>鴨ロースト レモンソース</p>
+          <p class="price">1,045円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/45/P040541445/P040541445_480.jpg"
+            alt="トマトとアボカドのモッツアレラチーズ"
+          />
+          <p>トマトとアボカドのモッツアレラチーズ</p>
+          <p class="price">935円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/35/P025664335/P025664335_480.jpg"
+            alt="イクラとサーモンの生ハムカルパッチョ"
+          />
+          <p>イクラとサーモンの生ハムカルパッチョ</p>
+          <p class="price">850円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/38/P025664338/P025664338_480.jpg"
+            alt="浅利と木の子の和風パスタ"
+          />
+          <p>浅利と木の子の和風パスタ</p>
+          <p class="price">1,760円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/49/P025664349/P025664349_480.jpg"
+            alt="大海老チリソース"
+          />
+          <p>大海老チリソース</p>
+          <p class="price">1,045円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【焼】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/48/P040541448/P040541448_480.jpg"
+            alt="砂ずりの塩炒め"
+          />
+          <p>砂ずりの塩炒め</p>
+          <p class="price">770円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/52/P025664352/P025664352_480.jpg"
+            alt="山芋のステーキ"
+          />
+          <p>山芋のステーキ</p>
+          <p class="price">715円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/56/P025664356/P025664356_480.jpg"
+            alt="ごぼうと蓮根の鶏つくね"
+          />
+          <p>ごぼうと蓮根の鶏つくね</p>
+          <p class="price">825円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/60/P025664360/P025664360_480.jpg"
+            alt="いろいろ野菜の海鮮グラタン"
+          />
+          <p>いろいろ野菜の海鮮グラタン</p>
+          <p class="price">1,045円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/70/P025664370/P025664370_480.jpg"
+            alt="糸島豚ロースグリル"
+          />
+          <p>糸島豚ロースグリル</p>
+          <p class="price">1,045円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/70/P025664370/P025664370_480.jpg"
+            alt="甘鯛ソテーマスタードソース"
+          />
+          <p>甘鯛ソテーマスタードソース</p>
+          <p class="price">990円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/43/74/P025664374/P025664374_480.jpg"
+            alt="大海老塩焼き"
+          />
+          <p>大海老塩焼き</p>
+          <p class="price">1,540円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/52/P040541452/P040541452_480.jpg"
+            alt="だし巻きたまご"
+          />
+          <p>だし巻きたまご</p>
+          <p class="price">715円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【煮】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/13/P040541513/P040541513_480.jpg"
+            alt="甘鯛あおさあんかけ"
+          />
+          <p>甘鯛あおさあんかけ</p>
+          <p class="price">935円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/17/P040541517/P040541517_480.jpg"
+            alt="キムチチゲ"
+          />
+          <p>キムチチゲ</p>
+          <p class="price">990円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/21/P040541521/P040541521_480.jpg"
+            alt="鶏もも照煮"
+          />
+          <p>鶏もも照煮</p>
+          <p class="price">935円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/19/P040541519/P040541519_480.jpg"
+            alt="海老と帆立のアヒージョ"
+          />
+          <p>海老と帆立のアヒージョ</p>
+          <p class="price">1,045円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【揚】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/83/P040541483/P040541483_480.jpg"
+            alt="厚揚げのじゃこねぎソース"
+          />
+          <p>厚揚げのじゃこねぎソース</p>
+          <p class="price">715円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/78/P040541478/P040541478_480.jpg"
+            alt="肉巻きアスパラの梅しそチーズ揚げ"
+          />
+          <p>肉巻きアスパラの梅しそチーズ揚げ</p>
+          <p class="price">990円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/97/P040541497/P040541497_480.jpg"
+            alt="蟹クリーム揚春巻"
+          />
+          <p>蟹クリーム揚春巻</p>
+          <p class="price">880円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/90/P040541490/P040541490_480.jpg"
+            alt="砂ずり唐揚げ"
+          />
+          <p>砂ずり唐揚げ</p>
+          <p class="price">715円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/58/P040541458/P040541458_480.jpg"
+            alt="クリームチーズの磯辺揚げ"
+          />
+          <p>クリームチーズの磯辺揚げ</p>
+          <p class="price">715円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/67/P040541467/P040541467_480.jpg"
+            alt="鮪レアカツ"
+          />
+          <p>鮪レアカツ</p>
+          <p class="price">1,540円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/63/P040541463/P040541463_480.jpg"
+            alt="ハリハリポテト"
+          />
+          <p>ハリハリポテト</p>
+          <p class="price">605円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/69/P040541469/P040541469_480.jpg"
+            alt="ごぼうスティック"
+          />
+          <p>ごぼうスティック</p>
+          <p class="price">550円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/14/76/P040541476/P040541476_480.jpg"
+            alt="鶏の唐揚げ"
+          />
+          <p>鶏の唐揚げ</p>
+          <p class="price">825円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【蒸】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/00/P040541500/P040541500_480.jpg"
+            alt="鰆の酒蒸し"
+          />
+          <p>鰆の酒蒸し</p>
+          <p class="price">1,045円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/44/39/P025664439/P025664439_480.jpg"
+            alt="天然鯛と明太子のキャベツ包み"
+          />
+          <p>天然鯛と明太子のキャベツ包み</p>
+          <p class="price">935円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/08/P040541508/P040541508_480.jpg"
+            alt="浅利バターの白ワイン蒸し"
+          />
+          <p>浅利バターの白ワイン蒸し</p>
+          <p class="price">880円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/44/43/P025664443/P025664443_480.jpg"
+            alt="蒸し山芋の蟹あんかけ"
+          />
+          <p>蒸し山芋の蟹あんかけ</p>
+          <p class="price">825円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【飯】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/44/57/P025664457/P025664457_480.jpg"
+            alt="蟹雑炊"
+          />
+          <p>蟹雑炊</p>
+          <p class="price">1,045円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/44/51/P025664451/P025664451_480.jpg"
+            alt="親子丼"
+          />
+          <p>親子丼</p>
+          <p class="price">825円円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/24/P040541524/P040541524_480.jpg"
+            alt="紀州梅おにぎり/明太子おにぎり/鮭おにぎり"
+          />
+          <p>紀州梅おにぎり/明太子おにぎり/鮭おにぎり</p>
+          <p class="price">各385円円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/28/P040541528/P040541528_480.jpg"
+            alt="紀州梅茶漬け/明太子茶漬け/鮭茶漬け"
+          />
+          <p>紀州梅茶漬け/明太子茶漬け/鮭茶漬け</p>
+          <p class="price">各770円</p>
+        </div>
+        <div class="menu-item">
+          <img src="images/06426.jpg" alt="鶏雑炊" />
+          <p>鶏雑炊</p>
+          <p class="price">825円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/31/P040541531/P040541531_480.jpg"
+            alt="特製海鮮おにぎり"
+          />
+          <p>特製海鮮おにぎり</p>
+          <p class="price">660円</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【汁物】</h2>
+      <div class="item">
+        <img
+          src="https://imgfp.hotp.jp/IMGH/15/38/P040541538/P040541538_480.jpg"
+          alt="あおさの味噌汁/あさりの味噌汁/なめこの味噌汁"
+        />
+        <p>あおさの味噌汁/あさりの味噌汁/なめこの味噌汁</p>
+        <p class="price">各440円</p>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>【デザート】</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/44/61/P025664461/P025664461_480.jpg"
+            alt="きなこもち"
+          />
+          <p>きなこもち</p>
+          <p class="price">385円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/15/40/P040541540/P040541540_480.jpg"
+            alt="パンケーキバニラアイス添え"
+          />
+          <p>パンケーキバニラアイス添え</p>
+          <p class="price">660円</p>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://imgfp.hotp.jp/IMGH/44/64/P025664464/P025664464_480.jpg"
+            alt="抹茶アイス/バニラアイス/柚子シャーベット"
+          />
+          <p>抹茶アイス/バニラアイス/柚子シャーベット</p>
+          <p class="price">各330円</p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="
+        text-align: center;
+        margin-top: 40px;
+        background-image: url('images/金屏風.jpg'), url('images/金屏風.jpg'),
+          url('images/金屏風.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left center, center center, right center; /* 各画像の位置を指定 */
+        padding: 20px;
+      "
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d830.8920856451101!2d130.40536405684696!3d33.590555190442075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191940870cc4b%3A0x2f2d2f60988c4d0d!2z5LiD5LmL5Yqp!5e0!3m2!1sja!2sjp!4v1726978005456!5m2!1sja!2sjp"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+    </div>
+  </body>
+</html>
